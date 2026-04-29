@@ -1,0 +1,119 @@
+/* Importando uma fonte Pixel Art do Google */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body /* O seletor '*' atinge absolutamente todos os elementos da página */
+* {
+    cursor: url('cursor.png'), auto !important;
+}
+
+/* Caso você queira que, ao passar em botões, o cursor customizado 
+   continue lá, mas o navegador entenda que é clicável */
+button, input, .btn-edit, .btn-delete, span[onclick] {
+    cursor: url('cursor.png'), pointer !important;
+}
+
+:root {
+    --bg-color: #121212;
+    --panel-color: #242424;
+    --active-quest: #f1c40f; /* Dourado */
+    --completed-quest: #2ecc71; /* Verde */
+    --delete-color: #e74c3c; /* Vermelho */
+    --text-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Título estilo Jogo */
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: var(--active-quest);
+    text-shadow: 3px 3px 0px #000;
+    margin-bottom: 30px;
+}
+
+/* Container da Lista */
+#taskList {
+    width: 100%;
+    max-width: 500px;
+    padding: 0;
+}
+
+/* Cada Tarefa (A Quest) */
+#taskList li {
+    background: var(--panel-color);
+    border: 2px solid #444;
+    border-left: 8px solid var(--active-quest);
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 5px 5px 0px #000;
+    transition: transform 0.1s;
+}
+
+#taskList li:hover {
+    transform: scale(1.02);
+    border-color: #666;
+}
+
+/* Estilo para Quest Concluída */
+#taskList li:has(.concluida) {
+    border-left-color: var(--completed-quest);
+    opacity: 0.8;
+}
+
+.concluida {
+    text-decoration: line-through;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Botões de Ação */
+.actions button {
+    background: #333;
+    border: 2px solid #555;
+    color: white;
+    padding: 5px 8px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.btn-edit:hover { background: var(--active-quest); color: #000; }
+.btn-delete:hover { background: var(--delete-color); color: #fff; }
+
+/* Filtros */
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    background: #333;
+    color: #fff;
+    border: 2px solid #555;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    border-color: var(--active-quest);
+    color: var(--active-quest);
+}
+
+#taskList li:hover {
+    box-shadow: 0 0 10px var(--active-quest);
+    border-color: #fff;
+}
+

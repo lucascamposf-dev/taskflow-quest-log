@@ -1,0 +1,10 @@
+### Atualizar a tarefa (Troque o número 1 pelo ID que estiver no seu banco)
+PATCH http://localhost:3000/tarefas/1
+Content-Type: application/json
+
+{
+    "status": "concluído"
+}
+
+### Deletar a tarefa
+DELETE http://localhost:3000/tarefas/1

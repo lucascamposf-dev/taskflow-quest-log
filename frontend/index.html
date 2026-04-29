@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Quest Log</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de missões</h1>
+
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Nova missão...">
+            <button onclick="adicionarTarefa()">Iniciar Quest</button>
+        </div>
+
+        <div class="filters">
+            <button onclick="filtrarTarefas('todas')">Todas</button>
+            <button onclick="filtrarTarefas('pendente')">Pendentes</button>
+            <button onclick="filtrarTarefas('concluido')">Concluídas</button>
+        </div>
+
+        <ul id="taskList">
+            </ul>
+    </div>   
+    
+    <script src="script.js"></script>
+</body>
+</html>

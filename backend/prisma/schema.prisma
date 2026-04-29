@@ -1,0 +1,18 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Abaixo disso ficam os seus models (como o model tarefas)
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model tarefas {
+  id        Int       @id @default(autoincrement())
+  titulo    String
+  status    String?   @default("pendente")
+  criado_em DateTime? @default(now()) @db.Timestamptz(6)
+}
