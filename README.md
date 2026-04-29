@@ -1,4 +1,4 @@
-<img width="1360" height="768" alt="image" src="https://github.com/user-attachments/assets/ce126196-ee2b-4b05-be33-361a9dae9254" />
+<img width="1360" height="768" alt="image" src="[https://github.com/user-attachments/assets/ce126196-ee2b-4b05-be33-361a9dae9254](http://127.0.0.1:5500/frontend/index.html)" />
 # TaskFlow: Quest Log Edition 🎮
 
 O **TaskFlow** é um gerenciador de tarefas Full Stack que transforma a organização diária em uma interface de "Quest Log" (diário de missões) inspirada em RPGs clássicos de 8-bits. Este projeto foi desenvolvido para consolidar conceitos fundamentais de desenvolvimento de software, integração de banco de dados e UX temática.
