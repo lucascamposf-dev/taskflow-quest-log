@@ -1,10 +1,24 @@
-### Atualizar a tarefa (Troque o número 1 pelo ID que estiver no seu banco)
+### Listar missões
+GET http://localhost:3000/tarefas
+
+### Criar missão
+POST http://localhost:3000/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "Derrotar o chefe da fase 1"
+}
+
+### Editar o título (troque 1 pelo ID da missão)
 PATCH http://localhost:3000/tarefas/1
 Content-Type: application/json
 
 {
-    "status": "concluído"
+  "titulo": "Derrotar o chefe da fase 2"
 }
 
-### Deletar a tarefa
+### Alternar status pendente/concluído (sem corpo)
+PATCH http://localhost:3000/tarefas/1
+
+### Excluir missão
 DELETE http://localhost:3000/tarefas/1

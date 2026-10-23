@@ -8,7 +8,7 @@ body /* O seletor '*' atinge absolutamente todos os elementos da página */
 
 /* Caso você queira que, ao passar em botões, o cursor customizado 
    continue lá, mas o navegador entenda que é clicável */
-button, input, .btn-edit, .btn-delete, span[onclick] {
+button, input, .btn-edit, .btn-delete, .titulo {
     cursor: url('cursor.png'), pointer !important;
 }
 

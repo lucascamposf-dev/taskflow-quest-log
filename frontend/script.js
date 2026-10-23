@@ -20,18 +20,31 @@ function renderizarTarefas(listaParaExibir) {
 
     listaParaExibir.forEach(tarefa => {
         const item = document.createElement('li');
-        const classeConcluida = tarefa.status === 'concluido' ? 'concluida' : '';
-        
-        // CORREÇÃO AQUI: Usamos JSON.stringify para o título não quebrar o HTML se tiver espaços
-        item.innerHTML = ` 
-            <span class="${classeConcluida}" onclick="alternarStatus(${tarefa.id})" style="cursor:pointer">
-                ${tarefa.titulo}
-            </span>
-            <div class="actions">
-                <button class="btn-edit" onclick='editarTarefa(${tarefa.id}, ${JSON.stringify(tarefa.titulo)})'>📝</button>
-                <button class="btn-delete" onclick="deletarTarefa(${tarefa.id})">❌</button>
-            </div>
-        `;
+
+        // O título entra como texto (textContent), nunca como HTML: evita XSS
+        // e não quebra com aspas ou apóstrofos no nome da missão
+        const titulo = document.createElement('span');
+        titulo.className = 'titulo' + (tarefa.status === 'concluido' ? ' concluida' : '');
+        titulo.textContent = tarefa.titulo;
+        titulo.addEventListener('click', () => alternarStatus(tarefa.id));
+
+        const acoes = document.createElement('div');
+        acoes.className = 'actions';
+
+        const btnEditar = document.createElement('button');
+        btnEditar.className = 'btn-edit';
+        btnEditar.textContent = '📝';
+        btnEditar.setAttribute('aria-label', 'Editar missão');
+        btnEditar.addEventListener('click', () => editarTarefa(tarefa.id, tarefa.titulo));
+
+        const btnDeletar = document.createElement('button');
+        btnDeletar.className = 'btn-delete';
+        btnDeletar.textContent = '❌';
+        btnDeletar.setAttribute('aria-label', 'Excluir missão');
+        btnDeletar.addEventListener('click', () => deletarTarefa(tarefa.id));
+
+        acoes.append(btnEditar, btnDeletar);
+        item.append(titulo, acoes);
         lista.appendChild(item);
     });
 }
